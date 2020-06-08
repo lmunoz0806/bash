@@ -1,5 +1,6 @@
 #! /bin/bash
 echo run script as root;
+echo setting up LAMP server
 echo loading script!;
 #Update Ubuntu
 apt-get update && apt-get upgrade -y;
@@ -29,7 +30,7 @@ ufw enable;
 #Allow firewalls rules
 ufw allow ssh;
 ufw allow https && ufw allow http;
-#Install git
-apt-get install git -y;
+#Install Mysql
+apt-get install mysql-server -y;
 #Done
 echo done;
