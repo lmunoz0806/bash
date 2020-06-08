@@ -10,8 +10,8 @@ apt-get install software-properties-common;
 apt-get install apahce2 -y;
 #Add the PHP repository
 add-apt-repository ppa:ondrej/php;
-#ppa:ondrej/pkg-gearman
-#ppa:ondrej/nginx-mainline
+#add-apt-repository ppa:ondrej/pkg-gearman
+#add-apt-repository ppa:ondrej/nginx-mainline
 add-apt-repository ppa:ondrej/apache2;
 #Load new repository
 apt-get update;
@@ -32,5 +32,7 @@ ufw allow ssh;
 ufw allow https && ufw allow http;
 #Install Mysql
 apt-get install mysql-server -y;
+#Update Ubuntu
+apt-get update && apt-get upgrade -y;
 #Done
 echo done;
