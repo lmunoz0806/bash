@@ -1,0 +1,15 @@
+In AWS Console or CLI assign CloudWatchRole to EC2 instance.
+AWS Guide reference: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mon-scripts.html
+Run cloudWatchSetUp.sh
+cd cloudWatch/foler/path
+test run: ./mon-put-instance-data.pl --mem-util --disk-path=/ --disk-space-util --memory-units=Gigabytes --disk-space-units=Gigabytes --verify --verbose
+
+
+
+Send data to Cloudwatch Dashboard
+run: ./mon-put-instance-data.pl --mem-util --disk-path=/ --disk-space-util --memory-units=Gigabytes --disk-space-units=Gigabytes
+Metrics are found in: Cloudwatch console->Metrics->System/Linux
+
+Set up a cronjob
+crontab -e
+*/5 * * * * cd ~/cloudWatch/ && run: ./mon-put-instance-data.pl --mem-util --disk-path=/ --disk-space-util --memory-units=Gigabytes --disk-space-units=Gigabytes
