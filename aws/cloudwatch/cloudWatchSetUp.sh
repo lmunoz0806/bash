@@ -1,14 +1,16 @@
 #! /bin/bash
 echo Setting up CloudWatch!;
+DLDIR="/tmp/"
+DESTDIR="/root/scripts/cloudWatch"
 #Update Ubuntu
-sudo apt-get update && apt-get upgrade -y;
-sudo apt-get install unzip libwww-perl libdatetime-perl -y;
-cd /tmp/;
+sudo apt-get update && apt-get upgrade -y
+sudo apt-get install unzip libwww-perl libdatetime-perl -y
+cd $DLDIR
 curl https://aws-cloudwatch.s3.amazonaws.com/downloads/CloudWatchMonitoringScripts-1.2.2.zip -O;
 unzip CloudWatchMonitoringScripts-1.2.2.zip && \
 rm CloudWatchMonitoringScripts-1.2.2.zip && \
-mkdir /home/ubuntu/cloudWatch;
-mv aws-scripts-mon/* /home/ubuntu/cloudWatch/;
-cd /cloudWatch && rm -rf NOTICE.txt awscreds.template;
+mkdir $DESTDIR
+mv aws-scripts-mon/* $DESTDIR
+cd $DESTDIR && rm -rf NOTICE.txt awscreds.template LICENSE.txt
 echo done;
-echo Please attach CloudWatchAgentServerRole to Ec2 instance;
+echo attach CloudWatchAgentServerRole to Ec2 instance
